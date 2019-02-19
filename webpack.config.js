@@ -6,7 +6,7 @@ module.exports = {
     entry: {
         app: [
             "@babel/polyfill",
-            path.resolve(__dirname, "src/index.js"),
+            path.resolve(__dirname, "src/generate-web.js"),
         ],
     },
     devtool: "cheap-source-map",

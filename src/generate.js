@@ -1,5 +1,4 @@
-export default (intext, { level = 4, length = 500 }) => {
-
+module.exports = (intext, { level = 4, length = 500 }) => {
     // Check intext length
     if (intext.length < level) {
         throw new Error("Too few input characters.")
