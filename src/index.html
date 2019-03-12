@@ -9,40 +9,31 @@
 <body>
     <h1>Svadagenerator</h1>
     <form action="" name="form" id="form">
-        <div>
-            <label for="intext">Enter any text</label> or choose a <label for="samples">sample</label>
-            <select name="samples" id="samples" onchange="generateInput(this.options[this.selectedIndex].text, event)">
-                <option selected="selected">-</option>
-                <option>Hamlet</option>
-                <option>Pooh</option>
-                <option>Kafka</option>
-                <option>Quixote</option>
-                <option>Pizza Ad</option>
-                <option>Physics</option>
-                <option>Management-ese</option>
-            </select>
-        </div>
-        <div>
-            <textarea name="intext" id="intext" cols="70" rows="10"></textarea>
-        </div>
-        <div>
-
-            <button type="submit" value="" onclick="generateGibberish(event)">
-                Generate Gibberish
-            </button>
-            <button type="clear" onclick="clearAll(event)">
-                Clear
-            </button>
-        </div>
-        <div>
-            <label for="outtext">Output</label>
-        </div>
-        <div>
-            <textarea name="outtext" id="outtext" cols="70" rows="10"></textarea>
-        </div>
         <fieldset>
             <legend>
-                Gibberish Level
+                Inndata
+            </legend>
+            <div>
+                <label for="intext">Skriv tekst</label> eller <label for="samples">velg eksempel</label>
+                <select name="samples" id="samples"
+                    onchange="generateInput(this.options[this.selectedIndex].text, event)">
+                    <option selected="selected">-</option>
+                    <option>Eventyr</option>
+                    <option>Hamlet</option>
+                    <option>Winnie the Pooh</option>
+                    <option>Kafka</option>
+                    <option>Don Quixote</option>
+                    <option>Fysikk</option>
+                    <option>Managementese</option>
+                </select>
+            </div>
+            <div>
+                <textarea name="intext" id="intext" cols="70" rows="10"></textarea>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>
+                Svadanivå
             </legend>
             <input type="radio" name="level" id="level1" value="1" />
             <label for="level1">1</label>
@@ -57,12 +48,27 @@
             <input type="radio" name="level" id="level6" value="6" />
             <label for="level6">6</label>
             <ul>
-                <li>Level 1 is based on the statistical distribution of single characters.</li>
-                <li>Level 2 is based on the statistical distribution of character pairs.</li>
-                <li>Level <em>n</em> is based on the statistical distribution of groups
-                    of <em>n</em> characters.</li>
+                <li>Nivå 1 baseres på statistisk distribusjon av enkelttegn</li>
+                <li>Nivå 2 baseres på statistisk distribusjon av tegnpar</li>
+                <li>Nivå <em>n</em> baseres på statistisk distribusjon av grupper
+                    på <em>n</em> tegn</li>
             </ul>
         </fieldset>
+        <div>
+            <button type="submit" value="" onclick="generateGibberish(event)">
+                Lag svada
+            </button>
+            <button type="clear" onclick="clearAll(event)">
+                Nullstill
+            </button>
+        </div>
+        <hr>
+        <div>
+            <label for="outtext">Resultat</label>
+        </div>
+        <div>
+            <textarea name="outtext" id="outtext" cols="70" rows="10"></textarea>
+        </div>
     </form>
 
 </body>

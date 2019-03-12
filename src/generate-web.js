@@ -1,7 +1,8 @@
 import generate from "./generate"
 import samples from "./samples.json"
 
-const form = document.form
+const { form } = document
+
 form.samples.selectedIndex = 1
 
 function generateGibberish(e) {
