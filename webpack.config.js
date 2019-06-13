@@ -5,7 +5,8 @@ const HtmlWebpackPlugin = require("html-webpack-plugin")
 module.exports = {
     entry: {
         app: [
-            "@babel/polyfill",
+            "core-js/stable",
+            "regenerator-runtime/runtime",
             path.resolve(__dirname, "src/generate-web.js"),
         ],
     },
