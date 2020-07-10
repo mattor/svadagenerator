@@ -3,7 +3,7 @@ const generate = require("./generate")
 
 // Make sure we got a filename on the command line.
 if (process.argv.length < 3) {
-    console.log("Usage: node " + process.argv[1] + " FILENAME [LEVEL] [LENGTH]") // eslint-disable-line no-console
+    console.log("Usage: node " + process.argv[1] + " FILENAME [LEVEL] [LENGTH]")
     process.exit(1)
 }
 
@@ -17,5 +17,5 @@ fs.readFile(filename, "utf8", function (err, data) {
 
     const gibberish = generate(data, { level, length })
 
-    console.log(gibberish) // eslint-disable-line no-console
+    console.log(gibberish)
 })
