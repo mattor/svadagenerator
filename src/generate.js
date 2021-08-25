@@ -1,4 +1,4 @@
-module.exports = (inText, { level = 4, length = 500 }) => {
+const generate = (inText, { level = 4, length = 500 }) => {
 
     // Check inText length
     if (inText.length < level) {
@@ -77,3 +77,5 @@ module.exports = (inText, { level = 4, length = 500 }) => {
 
     return outText
 }
+
+export default generate

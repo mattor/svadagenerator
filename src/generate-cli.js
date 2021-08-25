@@ -1,5 +1,5 @@
 const fs = require("fs")
-const generate = require("./generate")
+import generate from "./generate"
 
 // Make sure we got a filename on the command line.
 if (process.argv.length < 3) {
