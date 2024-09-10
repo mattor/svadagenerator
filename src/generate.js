@@ -1,5 +1,4 @@
 const generate = (inText, { level = 4, length = 500 }) => {
-
     // Check inText length
     if (inText.length < level) {
         throw new Error("Too few input characters.")
@@ -38,7 +37,7 @@ const generate = (inText, { level = 4, length = 500 }) => {
             // Find all sets of matching target characters
             nMatches = 0
             j = -1
-            for (; ;) {
+            for (;;) {
                 j = source.indexOf(target, j + 1)
                 if (j < 0 || j >= nChars) {
                     break
@@ -53,7 +52,7 @@ const generate = (inText, { level = 4, length = 500 }) => {
             // Find the character following the matching characters
             nMatches = 0
             j = -1
-            for (; ;) {
+            for (;;) {
                 j = source.indexOf(target, j + 1)
                 if (j < 0 || j >= nChars) {
                     break

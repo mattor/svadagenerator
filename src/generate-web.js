@@ -9,14 +9,17 @@ function generateGibberish(e) {
     e && e.preventDefault()
 
     form.outtext.value = generate(form.intext.value, {
-        level: parseInt(document.querySelector("input[name='level']:checked").value, 10),
+        level: parseInt(
+            document.querySelector("input[name='level']:checked").value,
+            10,
+        ),
     })
 }
 
 function generateInput(sampleName, e) {
     e && e.preventDefault()
 
-    const sample = samples.find(s => s.name === sampleName)
+    const sample = samples.find((s) => s.name === sampleName)
 
     if (sample) {
         form.intext.value = sample.text

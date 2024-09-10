@@ -1,77 +1,101 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Svadagenerator</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
 
-<head>
-    <meta charset="utf-8" />
-    <title>Svadagenerator</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-</head>
-
-<body>
-    <h1>Svadagenerator</h1>
-    <form action="" name="form" id="form">
-        <fieldset>
-            <legend>
-                Inndata
-            </legend>
+    <body>
+        <h1>Svadagenerator</h1>
+        <form action="" name="form" id="form">
+            <fieldset>
+                <legend>Inndata</legend>
+                <div>
+                    <label for="intext">Skriv tekst</label> eller
+                    <label for="samples">velg eksempel</label>
+                    <select
+                        name="samples"
+                        id="samples"
+                        onchange="generateInput(this.options[this.selectedIndex].text, event)"
+                    >
+                        <option selected="selected">-</option>
+                        <option>Eventyr</option>
+                        <option>Hamlet</option>
+                        <option>Winnie the Pooh</option>
+                        <option>Kafka</option>
+                        <option>Don Quixote</option>
+                        <option>Fysikk</option>
+                        <option>Managementese</option>
+                    </select>
+                </div>
+                <div>
+                    <textarea
+                        name="intext"
+                        id="intext"
+                        cols="70"
+                        rows="10"
+                    ></textarea>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Svadanivå</legend>
+                <input type="radio" name="level" id="level1" value="1" />
+                <label for="level1">1</label>
+                <input type="radio" name="level" id="level2" value="2" />
+                <label for="level2">2</label>
+                <input type="radio" name="level" id="level3" value="3" />
+                <label for="level3">3</label>
+                <input
+                    type="radio"
+                    name="level"
+                    id="level4"
+                    value="4"
+                    checked="checked"
+                />
+                <label for="level4">4</label>
+                <input type="radio" name="level" id="level5" value="5" />
+                <label for="level5">5</label>
+                <input type="radio" name="level" id="level6" value="6" />
+                <label for="level6">6</label>
+                <ul>
+                    <li>
+                        Nivå 1 baseres på statistisk distribusjon av enkelttegn
+                    </li>
+                    <li>
+                        Nivå 2 baseres på statistisk distribusjon av tegnpar
+                    </li>
+                    <li>
+                        Nivå <em>n</em> baseres på statistisk distribusjon av
+                        grupper på <em>n</em> tegn
+                    </li>
+                </ul>
+            </fieldset>
             <div>
-                <label for="intext">Skriv tekst</label> eller <label for="samples">velg eksempel</label>
-                <select name="samples" id="samples"
-                    onchange="generateInput(this.options[this.selectedIndex].text, event)">
-                    <option selected="selected">-</option>
-                    <option>Eventyr</option>
-                    <option>Hamlet</option>
-                    <option>Winnie the Pooh</option>
-                    <option>Kafka</option>
-                    <option>Don Quixote</option>
-                    <option>Fysikk</option>
-                    <option>Managementese</option>
-                </select>
+                <button
+                    type="submit"
+                    value=""
+                    onclick="generateGibberish(event)"
+                >
+                    Lag svada
+                </button>
+                <button type="clear" onclick="clearAll(event)">
+                    Nullstill
+                </button>
+            </div>
+            <hr />
+            <div>
+                <label for="outtext">Resultat</label>
             </div>
             <div>
-                <textarea name="intext" id="intext" cols="70" rows="10"></textarea>
+                <textarea
+                    name="outtext"
+                    id="outtext"
+                    cols="70"
+                    rows="10"
+                ></textarea>
             </div>
-        </fieldset>
-        <fieldset>
-            <legend>
-                Svadanivå
-            </legend>
-            <input type="radio" name="level" id="level1" value="1" />
-            <label for="level1">1</label>
-            <input type="radio" name="level" id="level2" value="2" />
-            <label for="level2">2</label>
-            <input type="radio" name="level" id="level3" value="3" />
-            <label for="level3">3</label>
-            <input type="radio" name="level" id="level4" value="4" checked="checked" />
-            <label for="level4">4</label>
-            <input type="radio" name="level" id="level5" value="5" />
-            <label for="level5">5</label>
-            <input type="radio" name="level" id="level6" value="6" />
-            <label for="level6">6</label>
-            <ul>
-                <li>Nivå 1 baseres på statistisk distribusjon av enkelttegn</li>
-                <li>Nivå 2 baseres på statistisk distribusjon av tegnpar</li>
-                <li>Nivå <em>n</em> baseres på statistisk distribusjon av grupper
-                    på <em>n</em> tegn</li>
-            </ul>
-        </fieldset>
-        <div>
-            <button type="submit" value="" onclick="generateGibberish(event)">
-                Lag svada
-            </button>
-            <button type="clear" onclick="clearAll(event)">
-                Nullstill
-            </button>
-        </div>
-        <hr>
-        <div>
-            <label for="outtext">Resultat</label>
-        </div>
-        <div>
-            <textarea name="outtext" id="outtext" cols="70" rows="10"></textarea>
-        </div>
-    </form>
-    <script type="module" src="/src/generate-web.js"></script>
-</body>
-
+        </form>
+        <script type="module" src="/src/generate-web.js"></script>
+    </body>
 </html>
