@@ -1,4 +1,4 @@
-const generate = (inText, { level = 4, length = 500 }) => {
+function generate(inText, { level = 4, length = 500 }) {
     // Check inText length
     if (inText.length < level) {
         throw new Error("Too few input characters.")
@@ -14,7 +14,8 @@ const generate = (inText, { level = 4, length = 500 }) => {
     for (let i = 0; i < 999; i++) {
         charIndex = Math.floor(nChars * Math.random())
         char = source.charAt(charIndex)
-        if (char >= "A" && char <= "Z") break
+        if (char >= "A" && char <= "Z")
+            break
     }
 
     if (!char) {
@@ -33,7 +34,8 @@ const generate = (inText, { level = 4, length = 500 }) => {
         if (level === 1) {
             // Pick a random character
             char = source.charAt(Math.floor(nChars * Math.random()))
-        } else {
+        }
+        else {
             // Find all sets of matching target characters
             nMatches = 0
             j = -1
@@ -41,7 +43,8 @@ const generate = (inText, { level = 4, length = 500 }) => {
                 j = source.indexOf(target, j + 1)
                 if (j < 0 || j >= nChars) {
                     break
-                } else {
+                }
+                else {
                     nMatches++
                 }
             }
@@ -56,10 +59,12 @@ const generate = (inText, { level = 4, length = 500 }) => {
                 j = source.indexOf(target, j + 1)
                 if (j < 0 || j >= nChars) {
                     break
-                } else if (matchIndex === nMatches) {
+                }
+                else if (matchIndex === nMatches) {
                     char = source.charAt(j + level - 1)
                     break
-                } else {
+                }
+                else {
                     nMatches++
                 }
             }
